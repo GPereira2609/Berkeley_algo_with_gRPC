@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package berkeley;
+
+service ClockSync {
+  rpc SyncTime (TimeRequest) returns (TimeResponse) {}
+}
+
+message TimeRequest {
+  int64 client_time = 1;
+}
+
+message TimeResponse {
+  int64 server_time = 1;
+  int64 time_diff = 2;
+}
